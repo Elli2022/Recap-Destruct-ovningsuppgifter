@@ -216,6 +216,9 @@
 // 4.Visa datan i DOM:en
 // 5.Visa ett error i DOM:en om något går fel.
 
+
+//sparar ner alla input-värden i ett objekt:
+
 // const formEl = document.querySelector('form');
 // formEl.addEventListener('submit', event => {
 //     event.preventDefault();
@@ -248,26 +251,7 @@
 // console.log(obj);
 
 
-// function fetchDogImage(){
-//     const url = `https://dog.ceo/api/breeds/image/random`;
-//     fetch(url).then(response => response.json()
-
-//     ).then(data => {
-//         console.log(data);
-
-
-// })
-
-//     .catch(error => {
-//         console.log(error);
-//         // const h1 = document.createElement("h1");
-//         // document.body.append(h1);
-//         // h1.innerText = "något gick fel";
-//     });
-
-// };
-
-//-------
+//______________________Exempel 1_______________________
 
 // const url = `https://dog.ceo/api/breeds/image/random`;
 // let button = document.getElementById("button");
@@ -296,6 +280,8 @@
 // }
 
 //--------------
+
+//_______________________Ett annat exempel_________________
 
 const url = `https://api.punkapi.com/v2/beers`;
 let button = document.getElementById("button");
