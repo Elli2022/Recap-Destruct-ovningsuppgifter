@@ -203,7 +203,7 @@
 // returnObj(cevap)
 
 
-//-----Fetch & Destructuring------------
+//___________________FETCH & DESTRUCTERING_____________________________________
 
 // Listor på öppna API:er
 // https://apilist.fun/collection/free-apis 
@@ -283,25 +283,71 @@
 
 //_______________________Ett annat exempel_________________
 
-const url = `https://api.punkapi.com/v2/beers`;
-let button = document.getElementById("button");
+// const url = `https://api.punkapi.com/v2/beers`;
+// let button = document.getElementById("button");
 
-button.addEventListener("click", () => {
-  bear();
-});
+// button.addEventListener("click", () => {
+//   bear();
+// });
 
-function bear() {
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data[0]);
-      
-    const {description, id, name, tagline} = data[0];
-    console.log(description, id, name, tagline);
+// function bear() {
+//   fetch(url)
+//     .then((response) => response.json())
+//     .then((data) => {
+//       console.log(data[0]);
 
-    const reply = document.createElement("h1");
-    reply.innerText = description, id, name, tagline;
-    document.body.append(reply);
-    });
+//     const {description, id, name, tagline} = data[0];
+//     console.log(description, id, name, tagline);
 
-}
+//     const reply = document.createElement("h1");
+//     reply.innerText = description, id, name, tagline;
+//     document.body.append(reply);
+//     });
+
+// }
+
+
+//________________CHUCK NORRIS JOKES___________
+
+// Chuck Norris jokes - https://api.chucknorris.io/ 
+// Låt användaren söka på en kategori och hämta ett random skämt i den kategorin. Visa skämtet.
+
+
+// const url = `https://api.chucknorris.io/jokes/random`;
+// let button = document.getElementById('button');
+// //Global variabel så att den nås av alla funktioner
+// const joke = document.createElement("h1");
+// button.addEventListener("click", () => {
+//     fetchJoke();
+// });
+
+// function fetchJoke() {
+//     fetch(url)
+//         .then(response => response.json())
+//         .then((data) => {
+//             console.log(data);
+
+//             //Destructering:
+//             const { value } = data;
+//             console.log(value);
+
+//             //Viser skämtet i DOM:en
+//             joke.innerText= value;
+//             document.body.append(joke);
+//         })
+       
+//         .catch(error => console.log(error));
+
+//         //Tömmer DOM:en på skämtet
+//         joke.innerText = "";
+// }
+
+//_______________________PUNK API_________________________________
+
+// Punk API - https://punkapi.com/documentation/v2 
+// Låt en användare söka på öl genom att ange ett namn. Visa namn, bild och beskrivning för ett enda öl. 
+// Låt en användare ange vilken mat som ska passa till ölen och sök fram öl som passar. Visa namnet för alla öl i svaret.
+// Låt användaren välja ett datum och visa namnet på alla öl som har bryggts innan det datumet. 
+
+
+
