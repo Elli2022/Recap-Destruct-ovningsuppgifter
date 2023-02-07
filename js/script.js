@@ -167,6 +167,8 @@
 // // 10 - Bracket notation
 // // Definiera en funktion som tar emot ett objekt och returnerar ett objekt där egenskapsnamnen och egenskapsvärdena är omvända. Använd Object.keys för att lösa uppgiften. Funktionen ska fungera för vilket objekt som helst. 
 
+//_______________MITT EXEMPEL_______________________
+
 // // Från
 // const hej = {
 //     animal: 'lion',
@@ -202,6 +204,43 @@
 // returnObj(hej)
 // returnObj(cevap)
 
+//____________CLARAS EXEMPEL________________________
+
+// 10 - Bracket notation
+// Definiera en funktion som tar emot ett objekt och returnerar ett objekt där egenskapsnamnen och egenskapsvärdena är omvända. Använd Object.keys för att lösa uppgiften. Funktionen ska fungera för vilket objekt som helst. 
+
+
+// const animalObj= {
+//     animal: 'lion',
+//     name: 'simba',
+//     continent: 'africa',
+//     sound: 'RAAWR'
+// };
+
+// function swapKeyValue(obj){
+//     //ta emot ett bjekt
+// const newObj = {};
+// //newObj['lion'] = 'animal';
+// console.log(newObj);
+
+// const keyArray = Object.keys(obj);
+
+// console.log(keyArray);
+
+// //console.log(keyArray);
+// keyArray.forEach(key => {
+
+//     //const value = obj[key];
+//     // newObj[value] = key;
+//     console.log(obj[key]);
+// })
+
+// //returnerar ett objekt
+// return newObj;
+// }
+
+// //anropar funktionen som returnerar en array med egenskaperna på objektet
+// swapKeyValue(animalObj);
 
 //___________________FETCH & DESTRUCTERING_____________________________________
 
@@ -331,11 +370,11 @@
 //             const { value } = data;
 //             console.log(value);
 
-//             //Viser skämtet i DOM:en
+//             //Visar skämtet i DOM:en
 //             joke.innerText= value;
 //             document.body.append(joke);
 //         })
-       
+
 //         .catch(error => console.log(error));
 
 //         //Tömmer DOM:en på skämtet
@@ -350,4 +389,61 @@
 // Låt användaren välja ett datum och visa namnet på alla öl som har bryggts innan det datumet. 
 
 
+//_________________________DOG API____________________________________
 
+
+// Dog API - https://dog.ceo/dog-api/ 
+// Låt användaren ange en hundras och antal bilder som ska hämtas.
+// Visa alla bilder på webbsidan.
+// Låt även användaren bestämma hur många bilder som ska hämtas. Tex 5 husky, 2 dalmatians osv.
+
+
+const form = document.getElementById('form');
+
+form.addEventListener('submit', event => {
+    event.preventDefault();
+
+    const userSearch = {};
+
+    const inputElements = form.childNodes;
+    console.log(inputElements);
+
+    inputElements.forEach(node => {
+        if (node.name != null && node.name !== '') {
+            console.log(node.name, node.value);
+
+            userSearch[node.name] = node.value;
+        }
+    })
+
+
+    console.log(userSearch);
+
+    getDogImages(userSearch);
+
+});
+
+function getDogImages({ breed, amount }) {
+    console.log(breed, amount);
+
+    const url = `https://dog.ceo/api/breed/${breed}/images/random/${amount}`;
+
+
+    fetch(url)
+        .then(response => response.json())
+        .then(({ message }) => {
+            console.log(message);
+
+            // const { message } = data;
+            // console.log(message);
+
+            const img = document.createElement("img");
+            img.src = message;
+            document.body.append(img);
+
+        })
+
+        .catch(error => console.log(error));
+
+
+}
